@@ -3,7 +3,7 @@
 ## Introduction
 This is a Level 200 lab for the Troubleshooting in Azure Batch.
 ## Deployment Instructions
-1.	Deploy the template and download the source code.
+1.	Deploy the template and download the source code. https://github.com/Walter-B-Jr/Azure_Batch_Assessment_04
 2.	Open up the application that was created in the deployment template to get the credentials required for the sample code to work correctly. Then, proceed to open the code sample in VS and make the following required changes:
 a.	Open “Program.cs” under DotNetTutorial application. 
 b.	Proceed to enter the credentials provided in the application to the code sample as shown below
