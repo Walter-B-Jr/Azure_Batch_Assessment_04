@@ -288,13 +288,22 @@ namespace Microsoft.Azure.Batch.Samples.DotNetTutorial
             {
                 Console.WriteLine("Creating pool [{0}]...", poolId);
 
+                
+                ImageReference imageReference = new ImageReference(
+                    publisher: "MicrosoftWindowsServer",
+                    offer: "WindowsServer",
+                    sku: "2019-Datacenter",
+                    version: "latest"); 
+                
                 // Create the unbound pool. Until we call CloudPool.Commit() or CommitAsync(), no pool is actually created in the
                 // Batch service. This CloudPool instance is therefore considered "unbound," and we can modify its properties.
                 pool = batchClient.PoolOperations.CreatePool(
                     poolId: poolId,
                     targetDedicatedComputeNodes: 3,                                             // 3 compute nodes
-                    virtualMachineSize: "small",                                                // single-core, 1.75 GB memory, 225 GB disk
-                    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));   // Windows Server 2012 R2
+                    virtualMachineSize: "Standard_D1_v2",                                       // single-core, 3.5 GB memory
+                    virtualMachineConfiguration: new VirtualMachineConfiguration(
+                        imageReference: imageReference, 
+                        nodeAgentSkuId: "batch.node.windows amd64"));
 
                 // Create and assign the StartTask that will be executed when compute nodes join the pool.
                 // In this case, we copy the StartTask's resource files (that will be automatically downloaded
