@@ -33,7 +33,6 @@ This lab involves the following resources.
 -	Resource Group
 -	Batch Account 
 -	Storage Account 
--	Application � (which contains Batch and Storage credentials
 ## Scenario
 1.	After running the job, the job is supposed to take only ~5 minutes to run after being scheduled, according to the customer (Note: this is specifically for this scenario. A Job will take however long it is necessary to run the customers Tasks code or reach the timeout specified by customer�). After running, the Job is still in Active State. The customer has set the Job to terminate after completion. 
 2.	You are required to identify why the Job failed to terminate. Remember, the customer has configured the Job to terminate after completion.
